@@ -1,0 +1,46 @@
+module
+
+public import ErdosProblems.Erdos788.AsymptoticRegularity
+public import ErdosProblems.Erdos788.CanonicalTrevisan
+public import ErdosProblems.Erdos788.CarryFactorization
+public import ErdosProblems.Erdos788.ChosenParameterBounds
+public import ErdosProblems.Erdos788.CodeGeometry
+public import ErdosProblems.Erdos788.CodeLengthBounds
+public import ErdosProblems.Erdos788.Definitions
+public import ErdosProblems.Erdos788.DesignLengthBounds
+public import ErdosProblems.Erdos788.EveryNFinite
+public import ErdosProblems.Erdos788.ExponentConsequences
+public import ErdosProblems.Erdos788.ExtractorInterface
+public import ErdosProblems.Erdos788.FinalTheorem
+public import ErdosProblems.Erdos788.FiniteCounting
+public import ErdosProblems.Erdos788.FiniteDistribution
+public import ErdosProblems.Erdos788.FiniteField
+public import ErdosProblems.Erdos788.FinitePrediction
+public import ErdosProblems.Erdos788.GraphFormulation
+public import ErdosProblems.Erdos788.LowerAnalytic
+public import ErdosProblems.Erdos788.LowerArithmetic
+public import ErdosProblems.Erdos788.LowerFinal
+public import ErdosProblems.Erdos788.Normalization
+public import ErdosProblems.Erdos788.NormalizedGraph
+public import ErdosProblems.Erdos788.PrimeParameters
+public import ErdosProblems.Erdos788.RankPruning
+public import ErdosProblems.Erdos788.Reconstruction
+public import ErdosProblems.Erdos788.SampledShearer
+public import ErdosProblems.Erdos788.SequentialPrediction
+public import ErdosProblems.Erdos788.Shearer
+public import ErdosProblems.Erdos788.ShearerAverage
+public import ErdosProblems.Erdos788.ShortLinearCode
+public import ErdosProblems.Erdos788.SimplexCode
+public import ErdosProblems.Erdos788.SlackCondition
+public import ErdosProblems.Erdos788.SparseNeighborhood
+public import ErdosProblems.Erdos788.Statement
+public import ErdosProblems.Erdos788.SuffixSlackDesign
+public import ErdosProblems.Erdos788.TrevisanParameters
+public import ErdosProblems.Erdos788.TrevisanRaw
+public import ErdosProblems.Erdos788.TriangleCounting
+public import ErdosProblems.Erdos788.UpperAssembly
+public import ErdosProblems.Erdos788.UpperExponentBounds
+public import ErdosProblems.Erdos788.UpperFinal
+public import ErdosProblems.Erdos788.UpperGraph
+
+@[expose] public section

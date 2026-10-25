@@ -1,0 +1,64 @@
+version: v0.4
+project:
+  name: "Erdős problem 788: Wang's exponent-one-half bounds"
+  description: >-
+    A port and reproduction of Shouqiao Wang's existing formal proof for the
+    exact finite extremal function in Erdős problem 788. For each natural n,
+    f(n) is the greatest integer such that every B contained in (2n,4n) admits
+    C contained in (n,2n), with sums of distinct elements of C avoiding B, and
+    |B|+|C| at least f(n). The compared theorems establish f(n)=n^(1/2+o(1)),
+    a uniform lower bound sqrt(n log n)/2000 for n at least 3, and a quantitative
+    upper exponent with error C(log log n/log n)^(1/3). The full proof source
+    is included. This is a toolchain port and verification package, not a new
+    mathematical solution.
+  authors:
+    - Shouqiao Wang
+  responsible_maintainers:
+    - AItoBit
+  license: MIT
+classification:
+  arxiv: [math.CO, math.NT]
+  msc2020: [05D40, 11B75]
+sources:
+  - title: A Proposed Solution to Erdős Problem 788
+    authors: [Shouqiao Wang]
+    type: paper
+    url: https://github.com/ShouqiaoW/erdos/blob/f2ae0ed/788/paper.tex
+    relationship: formalizes
+    note: >-
+      The mathematical proof and its quantitative bounds are due to Wang.
+      No novelty or independent mathematical solution is claimed by this port.
+  - title: Erdős problem 788
+    type: web discussion
+    url: https://www.erdosproblems.com/788
+    relationship: background
+related_formalizations:
+  - id: https://github.com/plby/lean-proofs/tree/8822f7ddef30fadbd92e1c6ab4ed897af356af5e/src/latest/ErdosProblems/Erdos788
+    relationship: adapts
+    note: >-
+      The 44 substantive Lean proof modules were reproduced from this pinned
+      source, attributed there to Shouqiao Wang, under the retained MIT license.
+      This repository includes their complete ported source rather than only
+      importing a theorem from another proof repository. Original verification
+      used Lean 4.33.0; this package ports module visibility and the toolchain.
+automation:
+  methods:
+    - method: agent
+      tool_setup: OpenAI Codex with Lean, Lake, canonical Mathlib, and independent audit agents
+      note: >-
+        Agents reproduced the existing development, audited the exact statement,
+        prepared the module-system/toolchain port and registry packaging, and
+        ran compiler checks. The original upstream formalization model was
+        unspecified. AI systems are not listed as human authors or maintainers.
+review:
+  status: agent-reviewed
+  notes: >-
+    The exact finite definition and source correspondence were agent-audited
+    during reproduction. No expert human peer review is asserted. The port's
+    machine checks and Palomar preflight evidence are recorded separately.
+scope: Two principal theorems, with their complete proof dependency closure
+limitations: Registry mechanical and editorial review are separate checks; no novelty or human peer-review claim is made
+provenance_notes: >-
+  AItoBit is the public human maintainer name supplied by the submitter.
+  The submitter states that they have approval from a responsible author or
+  maintainer of the underlying formalization. The approver is not named here.
