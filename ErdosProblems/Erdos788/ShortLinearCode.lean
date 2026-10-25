@@ -137,7 +137,9 @@ noncomputable def rowZeroIndicator {p m : ℕ} [Fact p.Prime]
 /-- The uniform probability mass function on the finite row space.
 This explicit construction replaces the former `PMF.uniformOfFintype` API. -/
 noncomputable def uniformRowPMF (p m : ℕ) [Fact p.Prime] : PMF (Fin m → ZMod p) :=
-  PMF.ofFintype (fun _ ↦ (Fintype.card (Fin m → ZMod p) : ℝ≥0∞)⁻¹) (by simp)
+  PMF.ofFintype (fun _ ↦ (Fintype.card (Fin m → ZMod p) : ℝ≥0∞)⁻¹) (by
+    have hp : p ≠ 0 := (Fact.out : p.Prime).ne_zero
+    simp [hp])
 
 theorem integral_rowZeroIndicator_uniform {p m : ℕ} [Fact p.Prime]
     [MeasurableSpace (Fin m → ZMod p)]
@@ -598,3 +600,4 @@ theorem exists_shortLinearCode
   exact ⟨⟨C.ell, C.encoder, C.injective, hlist, hlength⟩⟩
 
 end Erdos788
+
