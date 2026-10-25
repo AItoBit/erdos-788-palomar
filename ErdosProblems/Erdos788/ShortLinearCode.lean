@@ -138,8 +138,10 @@ noncomputable def rowZeroIndicator {p m : ℕ} [Fact p.Prime]
 This explicit construction replaces the former `PMF.uniformOfFintype` API. -/
 noncomputable def uniformRowPMF (p m : ℕ) [Fact p.Prime] : PMF (Fin m → ZMod p) :=
   PMF.ofFintype (fun _ ↦ (Fintype.card (Fin m → ZMod p) : ℝ≥0∞)⁻¹) (by
-    have hp : p ≠ 0 := (Fact.out : p.Prime).ne_zero
-    simp [hp])
+    simp only [Finset.sum_const, Finset.card_univ, nsmul_eq_mul]
+    exact ENNReal.mul_inv_cancel
+      (by exact_mod_cast (Fintype.card_ne_zero (α := Fin m → ZMod p)))
+      (by simp))
 
 theorem integral_rowZeroIndicator_uniform {p m : ℕ} [Fact p.Prime]
     [MeasurableSpace (Fin m → ZMod p)]
