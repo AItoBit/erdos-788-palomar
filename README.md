@@ -65,6 +65,10 @@ Original source hashes are retained in `upstream-source-hashes.json`.
 The original source was already ported from Lean4.27.0 to Lean4.33.0 and did
 not identify its formalization model. This package updates the module system
 and toolchain to Lean4.35.0 with exactly matching canonical Mathlib.
+The uniform-random-row measure in `ShortLinearCode.lean` is also adapted to
+Mathlib's newer finite-uniform-measure API; the mathematical distribution
+and theorem statements are unchanged. Original hashes describe the upstream
+sources before these visibility and API edits.
 
 AItoBit is the public human maintainer name supplied by the submitter. The
 submitter states that a responsible author or maintainer of the underlying

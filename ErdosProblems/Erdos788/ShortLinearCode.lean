@@ -134,14 +134,18 @@ noncomputable def rowZeroIndicator {p m : ℕ} [Fact p.Prime]
     (x a : Fin m → ZMod p) : ℝ :=
   if rowDotLinear p m x a = 0 then 1 else 0
 
+/-- The uniform probability mass function on the finite row space.
+This explicit construction replaces the former `PMF.uniformOfFintype` API. -/
+noncomputable def uniformRowPMF (p m : ℕ) [Fact p.Prime] : PMF (Fin m → ZMod p) :=
+  PMF.ofFintype (fun _ ↦ (Fintype.card (Fin m → ZMod p) : ℝ≥0∞)⁻¹) (by simp)
+
 theorem integral_rowZeroIndicator_uniform {p m : ℕ} [Fact p.Prime]
     [MeasurableSpace (Fin m → ZMod p)]
     [MeasurableSingletonClass (Fin m → ZMod p)]
     {x : Fin m → ZMod p} (hx : x ≠ 0) :
-    ∫ a, rowZeroIndicator x a ∂(PMF.uniformOfFintype
-        (Fin m → ZMod p)).toMeasure = 1 / p := by
+    ∫ a, rowZeroIndicator x a ∂(uniformRowPMF p m).toMeasure = 1 / p := by
   rw [PMF.integral_eq_sum]
-  simp only [PMF.uniformOfFintype_apply, ENNReal.toReal_inv,
+  simp only [uniformRowPMF, PMF.ofFintype_apply, ENNReal.toReal_inv,
     ENNReal.toReal_natCast, smul_eq_mul]
   rw [← Finset.mul_sum]
   exact average_rowDotLinear_eq_zero hx
@@ -161,7 +165,7 @@ theorem exists_rows_nearPlotkin_of_exponential_bound
   classical
   let Row := Fin m → ZMod p
   let : MeasurableSpace Row := ⊤
-  let μ₀ : Measure Row := (PMF.uniformOfFintype Row).toMeasure
+  let μ₀ : Measure Row := (uniformRowPMF p m).toMeasure
   let : IsProbabilityMeasure μ₀ := inferInstance
   let μ : Measure (Fin R → Row) := Measure.pi (fun _ ↦ μ₀)
   let : IsProbabilityMeasure μ := inferInstance

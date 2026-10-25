@@ -40,7 +40,7 @@ related_formalizations:
       source, attributed there to Shouqiao Wang, under the retained MIT license.
       This repository includes their complete ported source rather than only
       importing a theorem from another proof repository. Original verification
-      used Lean 4.33.0; this package ports module visibility and the toolchain.
+      used Lean 4.33.0; this package ports module visibility, the toolchain, and the finite uniform measure API.
 automation:
   methods:
     - method: agent
